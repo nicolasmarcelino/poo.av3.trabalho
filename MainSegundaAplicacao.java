@@ -1,10 +1,14 @@
+import java.io.IOException;
+
+import javax.swing.SwingUtilities;
+
 public class MainSegundaAplicacao {
-    public static void main(String[] args) {
-        // Run the GUI in the Event Dispatch Thread
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new ListaDeProdutos();
+        public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            try {
+                new ListaDeProdutos().createAndShowGUI();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
     }
